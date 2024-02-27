@@ -1,6 +1,6 @@
 <div class="side-bar-header">
   <div class="header-name">
-    <a href="#">Train</a>
+    <%= link_to current_user.name, edit_user_path(current_user)%>
   </div>
   <div class="create-train">
     <a href="#">路線名を作成する</a>
