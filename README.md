@@ -1,24 +1,53 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :train_users
+- has_many :trains, through: :train_users
+- has_many :messages
 
-* Configuration
+## trains table
 
-* Database creation
+| Column         | Type    | Options     |
+| ------         | ------  | ----------- |
+| name           | string  | null: false |
+| trainname_id   | integer | null: false |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_many :train_users
+- has_many :users, through: :train_users
+- has_many :messages
 
-* Services (job queues, cache servers, search engines, etc.)
+## train_users table
 
-* Deployment instructions
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| train  | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :train
+- belongs_to :user
+
+## messages table
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     |                                |
+| user    | references | null: false, foreign_key: true |
+| train   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :train
+- belongs_to :user
