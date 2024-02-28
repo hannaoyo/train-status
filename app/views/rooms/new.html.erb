@@ -1,0 +1,10 @@
+<div class='chat-room-form'>
+  <h1>新規チャットグループ</h1>
+  <%=form_with model: @train, local: true do |f|%>
+    <div class="weight-bold-text">
+      路線名を選択してください
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.collection_select(:trainname_id, Trainname.all, :id, :name, {}, {class:"select-box", id:"train-name"}) %>
+  <% end %>
+</div>
