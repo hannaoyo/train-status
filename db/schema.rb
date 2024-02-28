@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_28_020827) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_28_031102) do
+  create_table "train_users", charset: "utf8", force: :cascade do |t|
+    t.bigint "train_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["train_id"], name: "index_train_users_on_train_id"
+    t.index ["user_id"], name: "index_train_users_on_user_id"
+  end
+
   create_table "trains", charset: "utf8", force: :cascade do |t|
     t.integer "trainname_id", null: false
     t.datetime "created_at", null: false
@@ -30,4 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_28_020827) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "train_users", "trains"
+  add_foreign_key "train_users", "users"
 end
