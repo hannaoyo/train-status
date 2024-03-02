@@ -6,7 +6,7 @@
        路線名を選択してください
         <span class="indispensable">(※必須)</span>
       </div>
-      <%= f.collection_select(:trainname_id, TrainLine.all, :id, :name, {}, {class:"select-box", id:"train-name"}) %>
+      <%= f.collection_select(:trainname_id, TrainName.all, :id, :name, {}, {class:"select-box", id:"train-name"}) %>
     </div>
     <div class='chat-room-form__field'>
     </div>

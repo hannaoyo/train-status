@@ -1,4 +1,4 @@
-class TrainLine < ActiveHash::Base
+class TrainName < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' , active: false}, { id: 2, name: 'JR東海道新幹線' }, { id: 3, name: 'JR横須賀線' },
     { id: 4, name: 'JR横浜線' }, { id: 5, name: 'JR京浜東北線' }, { id: 6, name: 'JR京葉線' },
