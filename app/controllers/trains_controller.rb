@@ -1,6 +1,6 @@
 class TrainsController < ApplicationController
   def index
-    @trains = Train.order("name ASC")
+    @trains = Train.order("trainname ASC")
   end
 
   def new
