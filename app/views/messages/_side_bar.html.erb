@@ -12,25 +12,12 @@
 </div>
 
 <div class="trains">
-  <% if current_user %>
-    <% if current_user.trains.any? %>
-      <% current_user.trains.each do |train| %>
-        <div class="train">
-          <div class="train-name">
-            <a href="#"><%= train.trainname.name %></a>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
-      <p>No trains available</p>
-    <% end %>
-  <% else %>
-    <% Train.all.each do |train| %>
-      <div class="train">
-        <div class="train-name">
-          <a href="#"><%= train.trainname.name %></a>
-        </div>
+  <% Train.all.each do |train| %>
+    <div class="train">
+      <div class="train-name">
+        <%= link_to train.trainname.name, train_messages_path(train) %></a>
       </div>
-    <% end %>
+    </div>
   <% end %>
 </div>
+
