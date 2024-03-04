@@ -16,6 +16,12 @@ class TrainsController < ApplicationController
     end
   end
 
+  def destroy
+    train = Train.find(params[:id])
+    train.destroy
+    redirect_to root_path
+  end
+
   private
 
   def train_params
