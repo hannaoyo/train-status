@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :train_users
   has_many :trains, through: :train_users
+  has_many :messages
 
   validates :name, presence: true
 end
