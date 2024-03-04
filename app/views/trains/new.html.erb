@@ -1,0 +1,17 @@
+<div class='chat-room-form'>
+  <h1>新規チャットグループ</h1>
+  <%=form_with model: @train, local: true do |f|%>
+    <div class='chat-room-form__field'>
+      <div class="weight-bold-text">
+       路線名を選択してください
+        <span class="indispensable">(※必須)</span>
+      </div>
+      <%= f.collection_select(:trainname_id, TrainName.all, :id, :name, {}, {class:"select-box", id:"train-name"}) %>
+    </div>
+    <div class='chat-room-form__field'>
+    </div>
+    <div class='chat-room-form__field'>
+      <%= f.submit class: 'chat-room-form__action-btn'%>
+    </div>
+  <% end %>
+</div>
