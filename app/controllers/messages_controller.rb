@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @train = Train.find(params[:train_id])
+    @messages = @train.messages.includes(:user)
   end
 
   def create
@@ -12,6 +13,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to train_messages_path(@train)
     else
+      @messages = @train.messages.includes(:user)
       render :index, status: :unprocessable_entity
     end
   end
